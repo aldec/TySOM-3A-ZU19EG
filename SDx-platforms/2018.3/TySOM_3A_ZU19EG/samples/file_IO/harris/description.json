@@ -1,0 +1,20 @@
+{
+    "example" : "harris - File I/O",
+    "overview" : "harris",
+    "board" : [
+        "TySOM_3A_ZU19EG"
+    ],
+    "os" : [
+        "Linux"
+    ],
+    "system" : {
+        "dmclkid" : "6"
+    },
+    "accelerators" : [
+        {
+            "name" : "cornerHarris",
+            "location" : "<PLATFORM>/sw/a53_linux/linux_domain/inc/xfopencv/include/features/xf_harris.hpp",
+            "clkid" : "6"
+        }
+    ]
+}

@@ -1,0 +1,13 @@
+prefix=/ahome/barsko/storage/TySOM-3_libs_64/zlib/zlib-1.2.8-DEST
+exec_prefix=${prefix}
+libdir=${exec_prefix}/lib
+sharedlibdir=${libdir}
+includedir=${prefix}/include
+
+Name: zlib
+Description: zlib compression library
+Version: 1.2.8
+
+Requires:
+Libs: -L${libdir} -L${sharedlibdir} -lz
+Cflags: -I${includedir}

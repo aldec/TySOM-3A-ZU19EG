@@ -1,0 +1,11 @@
+prefix=/ahome/barsko/storage/TySOM-3_libs_64/libdrm-2.4.77-DEST
+exec_prefix=${prefix}
+libdir=${exec_prefix}/lib
+includedir=${prefix}/include
+
+Name: libdrm_nouveau
+Description: Userspace interface to nouveau kernel DRM services
+Version: 2.4.77
+Libs: -L${libdir} -ldrm_nouveau
+Cflags: -I${includedir} -I${includedir}/libdrm -I${includedir}/libdrm/nouveau
+Requires.private: libdrm

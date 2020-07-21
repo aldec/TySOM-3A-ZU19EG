@@ -1,0 +1,14 @@
+prefix=/ahome/barsko/storage/TySOM-3_libs_64/ffmpeg/ffmpeg-4.0-DEST
+exec_prefix=${prefix}
+libdir=/ahome/barsko/storage/TySOM-3_libs_64/ffmpeg/ffmpeg-4.0-DEST/lib
+includedir=/ahome/barsko/storage/TySOM-3_libs_64/ffmpeg/ffmpeg-4.0-DEST/include
+
+Name: libavresample
+Description: Libav audio resampling library
+Version: 4.0.0
+Requires: 
+Requires.private: libavutil >= 56.14.100
+Conflicts:
+Libs: -L${libdir}  -lavresample 
+Libs.private: -lm
+Cflags: -I${includedir}

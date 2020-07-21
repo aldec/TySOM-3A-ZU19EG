@@ -1,0 +1,11 @@
+prefix=/ahome/barsko/storage/TySOM-3_libs_64/libdrm-2.4.77-DEST
+exec_prefix=${prefix}
+libdir=${exec_prefix}/lib
+includedir=${prefix}/include
+
+Name: libdrm_radeon
+Description: Userspace interface to kernel DRM services for radeon
+Version: 2.4.77
+Libs: -L${libdir} -ldrm_radeon
+Cflags: -I${includedir} -I${includedir}/libdrm
+Requires.private: libdrm

@@ -1,0 +1,21 @@
+{
+    "example" : "lknpyroflow - File I/O",
+    "overview" : "lknpyroflow",
+    "board" : [
+        "TySOM_3_ZU7",
+        "TySOM_3A_ZU19EG"
+    ],
+    "os" : [
+        "Linux"
+    ],
+    "system" : {
+        "dmclkid" : "2"
+    },
+    "accelerators" : [
+        {
+            "name" : "DenseNonPyrLKOpticalFlow",
+            "location" : "<PLATFORM>/sw/a53_linux/linux_domain/inc/xfopencv/include/imgproc/xf_dense_npyr_optical_flow.hpp",
+            "clkid" : "2"
+        }
+    ]
+}

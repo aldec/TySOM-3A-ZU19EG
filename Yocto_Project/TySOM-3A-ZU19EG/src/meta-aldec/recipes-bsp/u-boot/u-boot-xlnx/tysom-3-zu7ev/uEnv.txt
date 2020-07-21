@@ -1,0 +1,21 @@
+uenvcmd=run aldec_sdboot
+
+kernel_image=Image
+devicetree_image=tysom-3-zu7ev.dtb
+ramdisk_image=uramdisk.image.gz
+
+# uramdisk filesystem
+bootargs=console=ttyPS0,115200 earlyprintk root=/dev/ram0 rw clk_ignore_unused
+aldec_sdboot=echo Copying Linux from SD to RAM... && fatload mmc 0:1 0x2A00000 ${kernel_image} && fatload mmc 0:1 0x2000000 ${devicetree_image} && fatload mmc 0:1 0x6000000 ${ramdisk_image} && booti 0x2A00000 0x6000000 0x2000000
+
+# ext4 filesystem
+#bootargs=console=ttyPS0,115200n8 earlycon root=/dev/mmcblk1p2 rw rootfstype=ext4 rootwait clk_ignore_unused loglevel=1
+#aldec_sdboot=echo Copying Linux from SD to RAM... && fatload mmc 0:1 0x4000000 ${kernel_image} && fatload mmc 0:1 0x2000000 ${devicetree_image} && booti 0x4000000 - 0x2000000
+
+
+
+
+
+
+
+

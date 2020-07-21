@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sdx:platform sdx:vendor="Aldec.com"
+              sdx:library="sdx"
+              sdx:name="TySOM_3A_ZU19EG_FMC1_ADAS"
+              sdx:version="1.0"
+              sdx:schemaVersion="1.0"
+              xmlns:sdx="http://www.xilinx.com/sdx">
+    <sdx:description>
+TySOM_3A_ZU19EG_FMC1_ADAS
+    </sdx:description>
+    <sdx:systemConfigurations sdx:defaultConfiguration="a53_linux">
+        <sdx:configuration sdx:name="a53_linux"
+                           sdx:displayName="a53_linux"
+                           sdx:defaultProcessorGroup="linux_domain"
+                           sdx:runtimes="cpp">
+            <sdx:description>a53_linux</sdx:description>
+            <sdx:prebuilt sdx:data="prebuilt"/>
+            <sdx:bootImages sdx:default="standard">
+                <sdx:image sdx:name="standard"
+                            sdx:bif="a53_linux/boot/linux.bif"
+                            sdx:imageData="a53_linux/linux_domain/image"
+                            sdx:mountPath="/mnt"
+                            sdx:readme="a53_linux/boot/generic.readme"
+                            />
+            </sdx:bootImages>
+            <sdx:processorGroup sdx:name="linux_domain"
+                                sdx:displayName="linux on psu_cortexa53"
+                                sdx:cpuType="cortex-a53">
+                <sdx:os sdx:name="linux"
+                        sdx:displayName="linux"
+                        sdx:libraryNames="v4l-mplane:drm:drm_amdgpu:drm_freedreno:drm_nouveau:drm_radeon:ffi:gio-2.0:glib-2.0:gmodule-2.0:gobject-2.0:gthread-2.0:kms:jpeg:png:png16:swresample:avcodec:avdevice:avfilter:avformat:avutil:swscale:avresample:opencv_calib3d:opencv_core:opencv_features2d:opencv_flann:opencv_highgui:opencv_imgcodecs:opencv_imgproc:opencv_ml:opencv_objdetect:opencv_photo:opencv_shape:opencv_stitching:opencv_superres:opencv_video:opencv_videoio:opencv_videostab:v4l1:v4l2:v4l2rds:v4lconvert:v4lconvert:v4l2subdev:mediactl:z"
+                        sdx:libraryPaths="a53_linux/linux_domain/lib:a53_linux/linux_domain/lib/libv4l:a53_linux/linux_domain/lib/libv4l/plugins"
+                        sdx:includePaths="a53_linux/linux_domain/inc/include:a53_linux/linux_domain/inc/xfopencv/include"/>
+            </sdx:processorGroup>
+        </sdx:configuration>
+    </sdx:systemConfigurations>
+</sdx:platform>

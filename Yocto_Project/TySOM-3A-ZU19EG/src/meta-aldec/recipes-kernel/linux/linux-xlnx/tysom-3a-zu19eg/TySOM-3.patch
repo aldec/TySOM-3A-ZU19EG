@@ -1,0 +1,125 @@
+From e909479ad60adf1ad795c5412a86e7a8da5e4c67 Mon Sep 17 00:00:00 2001
+From: Zbigniew Tuchewicz <zbyszekt@aldec.com>
+Date: Mon, 25 Mar 2019 16:34:55 +0100
+Subject: [PATCH 1/2] TySOM-3
+
+---
+ drivers/mtd/nand/arasan_nand.c           |  3 ++-
+ drivers/net/ethernet/cadence/macb_main.c | 28 ++++++++++++++++++------
+ 2 files changed, 23 insertions(+), 8 deletions(-)
+
+diff --git a/drivers/mtd/nand/arasan_nand.c b/drivers/mtd/nand/arasan_nand.c
+index a9a739e3b4e1..3d98d94e0b4b 100644
+--- a/drivers/mtd/nand/arasan_nand.c
++++ b/drivers/mtd/nand/arasan_nand.c
+@@ -907,8 +907,9 @@ static int anfc_init_timing_mode(struct anfc *nfc,
+ 	err = chip->onfi_set_features(mtd, chip, ONFI_FEATURE_ADDR_TIMING_MODE,
+ 				      (uint8_t *)feature);
+ 	chip->select_chip(mtd, -1);
+-	if (err)
++	/*if (err)
+ 		return err;
++	*/
+ 
+ 	/*
+ 	 * SDR timing modes 2-5 will not work for the arasan nand when
+diff --git a/drivers/net/ethernet/cadence/macb_main.c b/drivers/net/ethernet/cadence/macb_main.c
+index 3563781dde05..bcf90cc9af74 100644
+--- a/drivers/net/ethernet/cadence/macb_main.c
++++ b/drivers/net/ethernet/cadence/macb_main.c
+@@ -2924,22 +2924,25 @@ static void macb_configure_caps(struct macb *bp,
+ }
+ 
+ #if defined(CONFIG_OF)
+-static void macb_reset_phy(struct platform_device *pdev)
++/*static void macb_reset_phy(struct platform_device *pdev) */
++static void macb_reset_phy(struct platform_device *pdev, int phy_reset)
+ {
+-	int err, phy_reset, msec = 1;
++	/* int err, phy_reset, msec = 1;*/
++	int err, msec = 1;
+ 	bool active_low;
+ 	struct device_node *np = pdev->dev.of_node;
+ 
+-	if (!np)
++	/*if (!np)*/
++	if (!np || !gpio_is_valid(phy_reset))
+ 		return;
+ 
+ 	of_property_read_u32(np, "phy-reset-duration", &msec);
+ 	active_low = of_property_read_bool(np, "phy-reset-active-low");
+ 
+-	phy_reset = of_get_named_gpio(np, "phy-reset-gpio", 0);
++/*	phy_reset = of_get_named_gpio(np, "phy-reset-gpio", 0);
+ 	if (!gpio_is_valid(phy_reset))
+ 		return;
+-
++*/
+ 	err = devm_gpio_request_one(&pdev->dev, phy_reset,
+ 				    active_low ? GPIOF_OUT_INIT_LOW :
+ 				    GPIOF_OUT_INIT_HIGH, "phy-reset");
+@@ -2951,7 +2954,8 @@ static void macb_reset_phy(struct platform_device *pdev)
+ 	gpio_set_value(phy_reset, active_low);
+ }
+ #else /* CONFIG_OF */
+-static void macb_reset_phy(struct platform_device *pdev)
++/*static void macb_reset_phy(struct platform_device *pdev) */
++static void macb_reset_phy(struct platform_device *pdev, int phy_reset)
+ {
+ }
+ #endif /* CONFIG_OF */
+@@ -3630,6 +3634,15 @@ static int macb_probe(struct platform_device *pdev)
+ 	struct macb *bp;
+ 	int err;
+ 
++	int phy_reset = -ENXIO; // not valid
++	#if defined(CONFIG_OF)
++	    if (np) {
++	        phy_reset = of_get_named_gpio(np, "phy-reset-gpio", 0);
++	        if (phy_reset == -EPROBE_DEFER) // GPIO module not loaded yet
++	          return -EPROBE_DEFER;
++		}
++	#endif /* CONFIG_OF */
++
+ 	regs = platform_get_resource(pdev, IORESOURCE_MEM, 0);
+ 	mem = devm_ioremap_resource(&pdev->dev, regs);
+ 	if (IS_ERR(mem))
+@@ -3756,7 +3769,8 @@ static int macb_probe(struct platform_device *pdev)
+ 		bp->phy_interface = err;
+ 	}
+ 
+-	macb_reset_phy(pdev);
++	/*macb_reset_phy(pdev);*/
++	macb_reset_phy(pdev, phy_reset);
+ 
+ 	/* IP specific init */
+ 	err = init(pdev);
+-- 
+2.20.1
+
+
+From e45ba1895e802fb20622b13bb4006f4f6ce8bb6a Mon Sep 17 00:00:00 2001
+From: Zbyszek <z.tuchewicz@alltech.gda.pl>
+Date: Wed, 27 Mar 2019 09:53:01 +0100
+Subject: [PATCH 2/2] gpio 1024
+
+---
+ include/asm-generic/gpio.h | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/include/asm-generic/gpio.h b/include/asm-generic/gpio.h
+index 19eadac415c4..7d07144485ac 100644
+--- a/include/asm-generic/gpio.h
++++ b/include/asm-generic/gpio.h
+@@ -30,7 +30,7 @@
+ #if defined(CONFIG_ARCH_NR_GPIO) && CONFIG_ARCH_NR_GPIO > 0
+ #define ARCH_NR_GPIOS CONFIG_ARCH_NR_GPIO
+ #else
+-#define ARCH_NR_GPIOS		512
++#define ARCH_NR_GPIOS		1024
+ #endif
+ #endif
+ 
+-- 
+2.20.1
+

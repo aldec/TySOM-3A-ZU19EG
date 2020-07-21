@@ -1,0 +1,1 @@
+PACKAGECONFIG[glamor] = "--disable-glamor"

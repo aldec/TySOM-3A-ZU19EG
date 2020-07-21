@@ -1,0 +1,11 @@
+prefix=/ahome/barsko/storage/TySOM-3_libs_64/ffi/libffi-DEST
+exec_prefix=${prefix}
+libdir=${exec_prefix}/lib
+toolexeclibdir=${exec_prefix}/lib/../lib64
+includedir=${prefix}/include
+
+Name: libffi
+Description: Library supporting Foreign Function Interfaces
+Version: 3.299999
+Libs: -L${toolexeclibdir} -lffi
+Cflags: -I${includedir}
