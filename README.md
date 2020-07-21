@@ -1,5 +1,6 @@
 # Table of Content
 1. [TySOM](#tysom_main)
+   - [Vitis-platforms](#tysom_vitis_platforms)
    - [SDx-platforms](#tysom_sdx_platforms)
      - [How to use TySOM platform with SDx](#tysom_sdx_platform_use)
    - [Vivado - board definition files](#tysom_board_def_files)
@@ -22,11 +23,17 @@ TySOM is a family of development boards for embedded applications that features 
 
 Aldec provides the following list of boards:
 -	[TySOM-3A (Xilinx Zynq UltraScale+ ZU19EG)](https://www.aldec.com/en/products/emulation/tysom_boards/zynq_ultrascale_mpsoc_boards/tysom_3a)
+[GitHub Link](https://github.com/aldec/TySOM-3A-ZU19EG)
 -	[TySOM-3 (Xilinx Zynq UltraScale+ ZU7EV)](https://www.aldec.com/en/products/emulation/tysom_boards/zynq_ultrascale_mpsoc_boards/tysom_3)
+[GitHub Link](https://github.com/aldec/TySOM-3-ZU7EV)
 -	[TySOM-2 (Xilinx Zynq XC7Z045 or XC7Z100)](https://www.aldec.com/en/products/emulation/tysom_boards/zynq_7000/tysom_2)
+[GitHub Link](https://github.com/aldec/TySOM-2-7Z100)
 -	[TySOM-2A (Xilinx Zynq XC7Z030)](https://www.aldec.com/en/products/emulation/tysom_boards/zynq_7000/tysom_2a)
+[GitHub Link](https://github.com/aldec/TySOM-2A-7Z030)
 -	[TySOM-1 (Xilinx Zynq XC7Z030)](https://www.aldec.com/en/products/emulation/tysom_boards/zynq_7000/tysom_1)
+[GitHub Link](https://github.com/aldec/TySOM-1-7Z030)
 -	[TySOM-1A (Xilinx Zynq XC7Z010)](https://www.aldec.com/en/products/emulation/tysom_boards/zynq_7000/tysom_1a)
+[GitHub Link](https://github.com/aldec/TySOM-1A-7Z010)
 
 [Link to the TySOM boards page](https://www.aldec.com/en/products/emulation/tysom_boards)
 
@@ -40,6 +47,13 @@ Daughter Cards provided by Aldec:
 -	[FMC-NET](https://www.aldec.com/en/products/emulation/daughter_cards/fmc_daughter/fmc_net)
 -	[FMC-QSFP](https://www.aldec.com/en/products/emulation/daughter_cards/fmc_daughter/fmc_qsfp)
 -	[FMC-INDUSTRY](https://www.aldec.com/en/products/emulation/daughter_cards/fmc_daughter/fmc_industry)
+[GitHub Link](https://github.com/aldec/FMC-cards)
+
+<a name="tysom_vitis_platforms"/>
+
+## Vitis-Platforms
+
+A collection of configuration platforms for Xilinx Vitis tool that help customers use Aldec TySOm board with Vitis to accelerate algorithms in Zynq FPGA chip.
 
 <a name="tysom_sdx_platforms"/>
 
