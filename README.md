@@ -61,7 +61,7 @@ Daughter Cards provided by Aldec:
 
 ## Vitis-Platforms
 
-A collection of configuration platforms for Xilinx Vitis tool that help customers use Aldec TySOm board with Vitis to accelerate algorithms in Zynq FPGA chip.
+A collection of configuration platforms for Xilinx Vitis tool that help customers use Aldec TySOM board with Vitis to accelerate algorithms in Zynq FPGA chip.
 
 <a name="tysom_sdx_platforms"/>
 
