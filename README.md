@@ -25,23 +25,18 @@ Aldec provides the following list of boards:
 -	[TySOM-3A (Xilinx Zynq UltraScale+ ZU19EG)](https://www.aldec.com/en/products/emulation/tysom_boards/zynq_ultrascale_mpsoc_boards/tysom_3a)
 
 [GitHub Link](https://github.com/aldec/TySOM-3A-ZU19EG)
-
 -	[TySOM-3 (Xilinx Zynq UltraScale+ ZU7EV)](https://www.aldec.com/en/products/emulation/tysom_boards/zynq_ultrascale_mpsoc_boards/tysom_3)
 
 [GitHub Link](https://github.com/aldec/TySOM-3-ZU7EV)
-
 -	[TySOM-2 (Xilinx Zynq XC7Z045 or XC7Z100)](https://www.aldec.com/en/products/emulation/tysom_boards/zynq_7000/tysom_2)
 
 [GitHub Link](https://github.com/aldec/TySOM-2-7Z100)
-
 -	[TySOM-2A (Xilinx Zynq XC7Z030)](https://www.aldec.com/en/products/emulation/tysom_boards/zynq_7000/tysom_2a)
 
 [GitHub Link](https://github.com/aldec/TySOM-2A-7Z030)
-
 -	[TySOM-1 (Xilinx Zynq XC7Z030)](https://www.aldec.com/en/products/emulation/tysom_boards/zynq_7000/tysom_1)
 
 [GitHub Link](https://github.com/aldec/TySOM-1-7Z030)
-
 -	[TySOM-1A (Xilinx Zynq XC7Z010)](https://www.aldec.com/en/products/emulation/tysom_boards/zynq_7000/tysom_1a)
 
 [GitHub Link](https://github.com/aldec/TySOM-1A-7Z010)
@@ -52,12 +47,13 @@ TySOM-3A, TySOM-3, TySOM-2 and TySOM-2A families contain FMC connectors which ca
 
 Daughter Cards provided by Aldec:
 -	[FMC-ADAS](https://www.aldec.com/en/products/emulation/daughter_cards/fmc_daughter/fmc_adas)
--	[FMC-VISION](https://www.aldec.com/en/products/emulation/daughter_cards/fmc_daughter/fmc_vision)
--	[FMC-INT](https://www.aldec.com/en/products/emulation/daughter_cards/fmc_daughter/fmc_intf)
+-	[FMC-INDUSTRY](https://www.aldec.com/en/products/emulation/daughter_cards/fmc_daughter/fmc_industry)
+-	[FMC-INTF](https://www.aldec.com/en/products/emulation/daughter_cards/fmc_daughter/fmc_intf)
 -	[FMC-IOT](https://www.aldec.com/en/products/emulation/daughter_cards/fmc_daughter/fmc_iot)
 -	[FMC-NET](https://www.aldec.com/en/products/emulation/daughter_cards/fmc_daughter/fmc_net)
 -	[FMC-QSFP](https://www.aldec.com/en/products/emulation/daughter_cards/fmc_daughter/fmc_qsfp)
--	[FMC-INDUSTRY](https://www.aldec.com/en/products/emulation/daughter_cards/fmc_daughter/fmc_industry)
+-	[FMC-NVMe](https://www.aldec.com/en/products/emulation/daughter_cards/fmc_daughter/fmc_nvme)
+-	[FMC-VISION](https://www.aldec.com/en/products/emulation/daughter_cards/fmc_daughter/fmc_vision)
 
 [GitHub Link](https://github.com/aldec/FMC-cards)
 
@@ -101,14 +97,34 @@ The board definition files for all TySOM boards can be found in Vivado-board_fil
 
 The board definition files are provided for the following Aldec TySOM boards:
 -	[TySOM-3A (Xilinx Zynq UltraScale+ ZU19EG)](https://www.aldec.com/en/products/emulation/tysom_boards/zynq_ultrascale_mpsoc_boards/tysom_3a)
--	[TySOM-3 (Xilinx Zynq UltraScale+ Zu7EV)](https://www.aldec.com/en/products/emulation/tysom_boards/zynq_ultrascale_mpsoc_boards/tysom_3)
+
+[GitHub Link](https://github.com/aldec/TySOM-3A-ZU19EG)
+-	[TySOM-3 (Xilinx Zynq UltraScale+ ZU7EV)](https://www.aldec.com/en/products/emulation/tysom_boards/zynq_ultrascale_mpsoc_boards/tysom_3)
+
+[GitHub Link](https://github.com/aldec/TySOM-3-ZU7EV)
 -	[TySOM-2 (Xilinx Zynq XC7Z045 or XC7Z100)](https://www.aldec.com/en/products/emulation/tysom_boards/zynq_7000/tysom_2)
+
+[GitHub Link](https://github.com/aldec/TySOM-2-7Z100)
 -	[TySOM-2A (Xilinx Zynq XC7Z030)](https://www.aldec.com/en/products/emulation/tysom_boards/zynq_7000/tysom_2a)
+
+[GitHub Link](https://github.com/aldec/TySOM-2A-7Z030)
 -	[TySOM-1 (Xilinx Zynq XC7Z030)](https://www.aldec.com/en/products/emulation/tysom_boards/zynq_7000/tysom_1)
+
+[GitHub Link](https://github.com/aldec/TySOM-1-7Z030)
 -	[TySOM-1A (Xilinx Zynq XC7Z010)](https://www.aldec.com/en/products/emulation/tysom_boards/zynq_7000/tysom_1a)
+
+[GitHub Link](https://github.com/aldec/TySOM-1A-7Z010)
 
 The board definition files contain also FMC cards definitions:
 -	[FMC-ADAS](https://www.aldec.com/en/products/emulation/daughter_cards/fmc_daughter/fmc_adas)
+-	[FMC-INDUSTRY](https://www.aldec.com/en/products/emulation/daughter_cards/fmc_daughter/fmc_industry)
+-	[FMC-INTF](https://www.aldec.com/en/products/emulation/daughter_cards/fmc_daughter/fmc_intf)
+-	[FMC-IOT](https://www.aldec.com/en/products/emulation/daughter_cards/fmc_daughter/fmc_iot)
+-	[FMC-NET](https://www.aldec.com/en/products/emulation/daughter_cards/fmc_daughter/fmc_net)
+-	[FMC-QSFP](https://www.aldec.com/en/products/emulation/daughter_cards/fmc_daughter/fmc_qsfp)
+-	[FMC-NVMe](https://www.aldec.com/en/products/emulation/daughter_cards/fmc_daughter/fmc_nvme)
+
+[GitHub Link](https://github.com/aldec/FMC-cards)
 
 <a name="tysom_petalinux_bsp"/>
 
@@ -124,7 +140,11 @@ The board definition files for TySOM boards can be found in Petalinux_BSP folder
 
 The PetaLinux BSP files are provided for the following Aldec TySOM boards:
 -	[TySOM-3A (Xilinx Zynq UltraScale+ ZU19EG)](https://www.aldec.com/en/products/emulation/tysom_boards/zynq_ultrascale_mpsoc_boards/tysom_3a)
--	[TySOM-3 (Xilinx Zynq UltraScale+ Zu7EV)](https://www.aldec.com/en/products/emulation/tysom_boards/zynq_ultrascale_mpsoc_boards/tysom_3)
+
+[GitHub Link](https://github.com/aldec/TySOM-3A-ZU19EG)
+-	[TySOM-3 (Xilinx Zynq UltraScale+ ZU7EV)](https://www.aldec.com/en/products/emulation/tysom_boards/zynq_ultrascale_mpsoc_boards/tysom_3)
+
+[GitHub Link](https://github.com/aldec/TySOM-3-ZU7EV)
 
 The PetaLinux BSP files are provided for the following PetaLinux versions:
 - 2018.3
@@ -253,6 +273,10 @@ OpenWrt version: 15.05.1
 
 Aldec provides configuration for Yocto project for the following list of boards:
 -	[TySOM-3A (Xilinx Zynq UltraScale+ ZU19EG)](https://www.aldec.com/en/products/emulation/tysom_boards/zynq_ultrascale_mpsoc_boards/tysom_3a)
+
+[GitHub Link](https://github.com/aldec/TySOM-3A-ZU19EG)
 -	[TySOM-3 (Xilinx Zynq UltraScale+ ZU7EV)](https://www.aldec.com/en/products/emulation/tysom_boards/zynq_ultrascale_mpsoc_boards/tysom_3)
+
+[GitHub Link](https://github.com/aldec/TySOM-3-ZU7EV)
 
 [Document](https://github.com/aldec/TySOM-3A-ZU19EG/blob/master/Yocto_Project/How_to_configure_and_build_Linux_OS_with_Yocto_project.pdf) contains all necessary information about using the Yocto Project to build a custom Linux for the boards.
