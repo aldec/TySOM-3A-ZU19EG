@@ -28,7 +28,7 @@ TySOM_3A_ZU19EG
                                 sdx:cpuType="cortex-a53">
                 <sdx:os sdx:name="linux"
                         sdx:displayName="linux"
-                        sdx:libraryNames="v4l-mplane:drm:drm_amdgpu:drm_freedreno:drm_nouveau:drm_radeon:ffi:gio-2.0:glib-2.0:gmodule-2.0:gobject-2.0:gthread-2.0:kms:jpeg:png:png16:swresample:avcodec:avdevice:avfilter:avformat:avutil:swscale:avresample:opencv_calib3d:opencv_core:opencv_dnn:opencv_features2d:opencv_flann:opencv_gapi:opencv_highgui:opencv_imgcodecs:opencv_imgproc:opencv_ml:opencv_objdetect:opencv_photo:opencv_stitching:opencv_video:opencv_videoio:v4l1:v4l2:v4l2rds:v4lconvert:z:tiff:tiffxx"
+                        sdx:libraryNames="v4l-mplane:jpeg:png:png16:swresample:avcodec:avdevice:avfilter:avformat:avutil:swscale:avresample:opencv_calib3d:opencv_core:opencv_dnn:opencv_features2d:opencv_flann:opencv_gapi:opencv_highgui:opencv_imgcodecs:opencv_imgproc:opencv_ml:opencv_objdetect:opencv_photo:opencv_stitching:opencv_video:opencv_videoio:v4l1:v4l2:v4l2rds:v4lconvert:z"
                         sdx:libraryPaths="a53_linux/linux_domain/lib"
                         sdx:includePaths="a53_linux/linux_domain/inc/include:a53_linux/linux_domain/inc/xfopencv/include"/>
             </sdx:processorGroup>
