@@ -1,0 +1,5 @@
+ARCH_TySOM-3A-ZU19EG := aarch64
+BSP_TySOM-3A-ZU19EG := TySOM-3A-ZU19EG.bsp
+BITSTREAM_TySOM-3A-ZU19EG := base/base.bit
+
+STAGE4_PACKAGES_TySOM-3A-ZU19EG := pynq ethernet sensorconf xrt
