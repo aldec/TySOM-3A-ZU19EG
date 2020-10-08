@@ -14,6 +14,7 @@ git clone <path>
 
 # Table of Content
 1. [TySOM](#tysom_main)
+   - [PYNQ-board-files](#tysom_pynq_board_files)
    - [Vitis-platforms](#tysom_vitis_platforms)
    - [SDx-platforms](#tysom_sdx_platforms)
      - [How to use TySOM platform with SDx](#tysom_sdx_platform_use)
@@ -70,6 +71,14 @@ Daughter Cards provided by Aldec:
 -	[FMC-VISION](https://www.aldec.com/en/products/emulation/daughter_cards/fmc_daughter/fmc_vision)
 
 [GitHub Link](https://github.com/aldec/FMC-cards)
+
+<a name="tysom_pynq_board_files"/>
+
+## PYNQ-board-files
+
+A configuration files for Xilinx [PYNQ](https://github.com/Xilinx/PYNQ), an open-source project which allows using Python lanquage and libraries to design and use FPGA and microprocessors in Xilinx Zynq FPGA chips.
+
+The configuration folder contains all necessary files such as Vivado projects, bitstreams, and example notebooks.
 
 <a name="tysom_vitis_platforms"/>
 
