@@ -14,6 +14,7 @@ git clone <path>
 
 # Table of Content
 1. [TySOM](#tysom_main)
+   - [Third Party License](#tysom_licenses)
    - [PYNQ-board-files](#tysom_pynq_board_files)
    - [Vitis-platforms](#tysom_vitis_platforms)
    - [SDx-platforms](#tysom_sdx_platforms)
@@ -71,6 +72,16 @@ Daughter Cards provided by Aldec:
 -	[FMC-VISION](https://www.aldec.com/en/products/emulation/daughter_cards/fmc_daughter/fmc_vision)
 
 [GitHub Link](https://github.com/aldec/FMC-cards)
+
+<a name="tysom_licenses"/>
+
+## Third Party License
+
+The hardware projects used in all platforms utilizes some IP cores which requires additional licenses for Xilinx Vivado.
+List of the IP cores and licenses required to use platforms:
+| IP core       | License          | Vendor |
+| ------------- | ---------------- | ------ |
+| HDMI-RX/TX    | EF-DI-HDMI-SITE  | Xilinx |
 
 <a name="tysom_pynq_board_files"/>
 
