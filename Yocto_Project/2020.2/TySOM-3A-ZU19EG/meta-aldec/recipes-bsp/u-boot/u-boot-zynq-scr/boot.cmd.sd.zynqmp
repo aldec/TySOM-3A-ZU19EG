@@ -1,0 +1,26 @@
+for boot_target in ${boot_targets};
+do
+    if test "${boot_target}" = "mmc0" || test "${boot_target}" = "mmc1" ; then
+	if test -e ${devtype} ${devnum}:${distro_bootpart} /Image; then
+	    fatload ${devtype} ${devnum}:${distro_bootpart} 0x00200000 Image
+	fi
+
+	if test -e ${devtype} ${devnum}:${distro_bootpart} /system-top.dtb; then
+	    fatload ${devtype} ${devnum}:${distro_bootpart} 0x00100000 system-top.dtb
+	fi
+
+	if test -e ${devtype} ${devnum}:${distro_bootpart} /rootfs.cpio.gz.u-boot; then
+	    echo "Boot Linux (RAM) ..."
+	    setenv bootargs "console=ttyPS0,115200n8 earlycon root=/dev/ram0  rw earlyprintk cma=1024M clk_ignore_unused cpuidle.off=1"
+	    fatload ${devtype} ${devnum}:${distro_bootpart} 0x04000000 rootfs.cpio.gz.u-boot
+	    booti 0x00200000 0x04000000 0x00100000
+	    exit;
+	fi
+	echo "Boot Linux (EXT4) ..."
+	setenv bootargs "console=ttyPS0,115200n8 earlycon root=/dev/mmcblk1p2 rw rootfstype=ext4 rootwait earlyprintk cma=1024M clk_ignore_unused cpuidle.off=1"
+	booti 0x00200000 - 0x00100000
+	exit;
+    fi
+done
+
+

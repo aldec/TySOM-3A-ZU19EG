@@ -1,0 +1,358 @@
+/ {
+	aliases {
+	    serial0 = "/amba/serial@ff010000";
+	    serial1 = "/amba/serial@ff000000";
+	    serial2 = "/amba_pl@0/serial@80001000";
+	};
+        chosen {
+                bootargs = "console=ttyPS0,115200 rw earlycon clk_ignore_unused earlyprintk uio_pdrv_genirq.of_id=xlnx,generic-uio cma=1024M cpuidle.off=1 root=/dev/ram0";
+                stdout-path = "serial0:115200n8";
+        };
+        memory {
+                reg = <0x0 0x0 0x0 0x7ff00000>, <0x00000008 0x00000000 0x00000001 0x80000000>, <0x00000048 0x00000000 0x00000002 0x00000000>;
+        };
+	wmmcsdio_fixed: fixedregulator {
+		compatible = "regulator-fixed";
+		regulator-name = "wmmcsdio_fixed";
+		regulator-min-microvolt = <3300000>;
+		regulator-max-microvolt = <3300000>;
+		regulator-always-on;
+		startup-delay-us = <70000>;
+		enable-active-high;
+	};
+	sdio_pwrseq: sdio_pwrseq {
+		compatible = "mmc-pwrseq-simple";
+		reset-gpios = <&gpio 83 0x1>;
+		post-power-on-delay-ms = <1000>;
+	};
+	xlnx {
+		compatible = "xlnx,xlnk-1.0";
+	};
+	dru_clk: dru_clk {
+		#clock-cells = <0>;
+		clock-frequency = <100000000>;
+		compatible = "fixed-clock";
+	};
+};
+&cpu_opp_table {
+	opp00 {
+		opp-hz = /bits/ 64 <1334013000>;
+	};
+};
+&xilinx_ams {
+	status = "okay";
+};
+&ams_ps {
+	status = "okay";
+};
+&ams_pl {
+	status = "okay";
+	xlnx,ext-channels {
+		#address-cells = <1>;
+		#size-cells = <0>;
+		channel@0 {
+			reg = <0>;
+			xlnx,bipolar;
+		};
+	};
+};
+&zynqmp_dp_snd_card0 {
+        status = "disabled";
+};
+&zynqmp_dp_snd_codec0 {
+        status = "disabled";
+};
+&gem1 {
+    status = "okay";
+    phy-handle = <&phy1>;
+    phy-mode = "rgmii-id";
+    local-mac-address = [00 0a 35 3a 02 00];
+
+    psu_ethernet_1_mdio: mdio {
+        #address-cells = <1>;
+        #size-cells = <0>;
+        phy1: phy@8 {
+            device_type = "ethernet-phy";
+            reg = <8>;
+            ti,rx-internal-delay = <0x8>;
+            ti,tx-internal-delay = <0xa>;
+            ti,fifo-depth = <0x1>;
+            reset-gpios = <&GPIO_GPIO1 0 0 1>;
+        };
+    };
+};
+&gem2 {
+    status = "okay";
+    phy-handle = <&phy0>;
+    phy-mode = "rgmii-id";
+    local-mac-address = [00 0a 35 3a 02 01];
+
+    psu_ethernet_2_mdio: mdio {
+        #address-cells = <1>;
+        #size-cells = <0>;
+        phy0: phy@9 {
+            device_type = "ethernet-phy";
+            reg = <0x9>;
+            ti,rx-internal-delay = <0x8>;
+            ti,tx-internal-delay = <0xa>;
+            ti,fifo-depth = <0x1>;
+            reset-gpios = <&gpio 11 0>;
+        };
+    };
+};
+&i2c0 {
+	clock-frequency = <400000>;
+	status = "okay";
+	si570: clock-generator@55 {
+		#clock-cells = <0>;
+		compatible = "silabs,si570";
+		reg = <0x55>;
+		temperature-stability = <50>;
+		factory-fout = <156250000>;
+		clock-frequency = <156250000>;
+		lock-gpios = <&gpio 81 1>;
+	};
+	eeprom@50 {
+		compatible = "at,24c64";
+		reg = <0x50>;
+	};
+	mma8652fc@1d {
+		compatible = "fsl,mma8652";
+		reg = <0x1d>;
+	};	
+	si7020@40 {
+		compatible = "silabs,si7020";
+		reg = <0x40>;
+	};
+	ina219@45 {
+		compatible = "ti,ina219";
+		reg = <0x45>;
+		shunt-resistor = <2000>;
+	};
+};
+&i2c1 {
+	status = "okay";
+	clock-frequency = <400000>;
+
+	dp159: hdmi-retimer@5d {
+		status = "okay";
+		compatible = "ti,dp159";
+		reg = <0x5d>;
+		#address-cells = <1>;
+		#size-cells = <0>;
+		#clock-cells = <0>;
+	};
+};
+&nand0 {
+	status = "okay";
+	arasan,has-mdma;
+	num-cs = <1>;
+
+	nand@0 {
+		reg = <0x0>;
+		#address-cells = <0x1>;
+		#size-cells = <0x1>;
+		
+		partition@nand-linux-0 { /* test purposes */
+			label = "nand-linux-0";
+			reg = <0x00000000 0x04000000>;
+		};
+		partition@nand-linux-1 { /* test purposes */
+			label = "nand-linux-1";
+			reg = <0x04000000 0x04000000>;
+		};
+		partition@nand-linux-2 { /* test purposes */
+			label = "nand-linux-2";
+			reg = <0x08000000 0x04000000>;
+		};
+		partition@nand-linux-3 { /* test purposes */
+			label = "nand-linux-3";
+			reg = <0x0C000000 0x04000000>;
+		};
+	};
+};
+&qspi {
+	is-dual = <0>;
+	num-cs = <1>;
+	status = "okay";
+	
+	flash0: flash@0 {
+		compatible = "s25fl512s";
+		spi-tx-bus-width=<1>;
+		spi-rx-bus-width=<4>;
+		reg = <0x0>;
+		#address-cells = <1>;
+		#size-cells = <1>;
+		spi-max-frequency = <108000000>;
+		
+		partition@test-0 { /* test purposes */
+			label = "qspi-test-0";
+			reg = <0x00000000 0x01000000>;
+		};
+		partition@test-1 { /* test purposes */
+			label = "qspi-test-1";
+			reg = <0x01000000 0x01000000>;
+		};
+		partition@test-2 { /* test purposes */
+			label = "qspi-test-2";
+			reg = <0x02000000 0x01000000>;
+		};
+		partition@test-3 { /* test purposes */
+			label = "qspi-test-3";
+			reg = <0x03000000 0x01000000>;
+		};
+	};
+};
+&sata {
+	status = "okay";
+	phy-names = "sata-phy";
+	phys = <&lane1 1 1 1 150000000>;
+};
+&sdhci0 {
+	clock-frequency = <50000000>;
+	status = "okay";
+	no-1-8-v;
+	bus-width = <4>;
+	broken-cd;
+	xlnx,mio_bank = <1>;
+	disable-wp;
+	non-removable;
+	enable-sdio-wakeup;
+	mmc-pwrseq = <&sdio_pwrseq>;
+	vqmmc-supply = <&wmmcsdio_fixed>;
+	ti,non-removable;
+	ti,needs-special-hs-handling;
+	cap-power-off-card;
+	keep-power-in-suspend;
+	
+	#address-cells = <1>;
+	#size-cells = <0>;
+	wlcore: wlcore@2 {
+		status = "okay";
+		compatible = "ti,wl1837";
+		reg = <2>;
+		interrupt-parent = <&gpio>;
+		interrupts = <39 1>;
+	};
+};
+&sdhci1 {
+	clock-frequency = <99999000>;
+	status = "okay";
+	xlnx,mio_bank = <0x1>;
+	no-1-8-v;
+	disable-wp;
+	bus-width = <4>;
+};
+&uart0 {
+	device_type = "serial";
+	port-number = <1>;
+	status = "okay";
+	u-boot,dm-pre-reloc ;
+	/delete-property/ cts-override;
+	bluetooth {
+		compatible = "ti,wl1837-st";
+		enable-gpios = <&gpio 82 0>;
+	};
+};
+&uart1 {
+	device_type = "serial";
+	port-number = <0>;
+	status = "okay";
+	u-boot,dm-pre-reloc ;
+};
+&dwc3_1 {
+	status = "okay";
+	dr_mode = "host";
+};
+&DDR4_DDR4_PL {
+//	device_type = "memory";
+};
+&HDMI_TX_v_mix_0 {
+        compatible = "xlnx,mixer-4.0", "xlnx,mixer-3.0";
+        reset-gpios = <&gpio 79 1>;
+        clocks = <&si570>;
+
+        crtc_mixer_port: port@0 {
+                reg = <0>;
+                mixer_crtc: endpoint {
+                        remote-endpoint = <&hdmi_encoder>;
+                };
+        };
+        xx_mix_master: layer_0 {
+                xlnx,layer-id = <0>;
+                xlnx,layer-max-height = <2160>;
+                xlnx,layer-max-width = <3840>;
+                xlnx,vformat = "BG24";
+        };
+        xx_mix_overlay_1: layer_1 {
+                xlnx,layer-alpha ;
+                xlnx,layer-id = <1>;
+                xlnx,layer-max-width = <3840>;
+                xlnx,vformat = "YUYV";
+        };
+        xx_mix_overlay_2: layer_2 {
+                xlnx,layer-alpha ;
+                xlnx,layer-id = <2>;
+                xlnx,layer-max-width = <3840>;
+                xlnx,vformat = "YUYV";
+        };
+        xx_mix_overlay_3: layer_3 {
+                xlnx,layer-alpha ;
+                xlnx,layer-id = <3>;
+                xlnx,layer-max-width = <3840>;
+                xlnx,vformat = "UYVY";
+        };
+        xx_mix_overlay_4: layer_4 {
+                xlnx,layer-alpha ;
+                xlnx,layer-id = <4>;
+                xlnx,layer-max-width = <3840>;
+                xlnx,vformat = "AR24";
+                xlnx,layer-primary;
+        };
+        xx_mix_logo: logo {
+                xlnx,layer-id = <5>;
+                xlnx,logo-height = <64>;
+                xlnx,logo-width = <64>;
+        };
+};
+&HDMI_TX_v_hdmi_tx_ss_0 {
+        compatible = "xlnx,v-hdmi-tx-ss-3.1";
+
+        clock-names = "s_axi_cpu_aclk", "link_clk", "s_axis_audio_aclk", "video_clk", "s_axis_video_aclk", "txref-clk", "retimer-clk";
+        clocks = <&misc_clk_0>, <&misc_clk_1>, <&misc_clk_0>, <&misc_clk_2>, <&misc_clk_3>, <&si570>, <&dp159>;
+
+        phy-names = "hdmi-phy0", "hdmi-phy1", "hdmi-phy2";
+        phys = <&vphy_lane0 0 1 1 1>, <&vphy_lane1 0 1 1 1>, <&vphy_lane2 0 1 1 1>;
+
+        xlnx,output-fmt = "rgb";
+        xlnx,input-pixels-per-clock = <0x2>;
+        xlnx,max-bits-per-component = <0x8>;
+
+        encoder_hdmi_port: port@0 {
+                reg = <0>;
+                hdmi_encoder: endpoint {
+                        remote-endpoint = <&mixer_crtc>;
+                };
+        };
+};
+&HDMI_RX_v_hdmi_rx_ss_0 {
+        compatible = "xlnx,v-hdmi-rx-ss-3.1";
+        phy-names = "hdmi-phy0", "hdmi-phy1", "hdmi-phy2";
+        phys = <&vphy_lane0 0 1 1 0>, <&vphy_lane1 0 1 1 0>, <&vphy_lane2 0 1 1 0>;
+        xlnx,edid-ram-size = <0x100>;
+        xlnx,input-pixels-per-clock = <2>;
+        xlnx,max-bits-per-component = <8>;
+};
+&HDMI_RX_v_proc_ss_0 {
+        compatible = "xlnx,v-vpss-scaler-2.2";
+        reset-gpios = <&gpio 78 1>;
+};
+&HDMI_RX_v_frmbuf_wr_0 {
+        compatible = "xlnx,axi-frmbuf-wr-v2.1";
+        reset-gpios = <&gpio 80 1>;
+};
+&vid_phy_controller_0 {
+        clock-names = "mgtrefclk0_pad_p_in", "mgtrefclk0_pad_n_in", "gtsouthrefclk0_in", "gtsouthrefclk0_odiv2_in", "gtsouthrefclk1_in", "gtsouthrefclk1_odiv2_in", "gtsouthrefclk10_in", "gtsouthrefclk11_in", "vid_phy_tx_axi4s_aclk", "vid_phy_rx_axi4s_aclk", "vid_phy_sb_aclk", "vid_phy_axi4lite_aclk", "drpclk", "dru-clk";
+        clocks = <&misc_clk_4>, <&misc_clk_4>, <&misc_clk_4>, <&misc_clk_4>, <&misc_clk_4>, <&misc_clk_4>, <&misc_clk_4>, <&misc_clk_4>, <&misc_clk_2>, <&misc_clk_2>, <&misc_clk_0>, <&misc_clk_0>, <&misc_clk_0>, <&dru_clk>;
+        xlnx,use-gt-ch4-hdmi = <0x0>;
+};

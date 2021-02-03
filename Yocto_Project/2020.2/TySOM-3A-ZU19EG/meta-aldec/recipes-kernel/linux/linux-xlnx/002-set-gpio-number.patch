@@ -1,0 +1,13 @@
+diff --git a/include/asm-generic/gpio.h b/include/asm-generic/gpio.h
+index 19eadac..7d07144 100644
+--- a/include/asm-generic/gpio.h
++++ b/include/asm-generic/gpio.h
+@@ -30,7 +30,7 @@
+ #if defined(CONFIG_ARCH_NR_GPIO) && CONFIG_ARCH_NR_GPIO > 0
+ #define ARCH_NR_GPIOS CONFIG_ARCH_NR_GPIO
+ #else
+-#define ARCH_NR_GPIOS		512
++#define ARCH_NR_GPIOS		1024
+ #endif
+ #endif
+ 

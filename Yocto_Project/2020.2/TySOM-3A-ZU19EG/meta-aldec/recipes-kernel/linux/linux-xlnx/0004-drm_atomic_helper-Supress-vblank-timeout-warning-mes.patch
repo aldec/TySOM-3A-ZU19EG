@@ -1,0 +1,30 @@
+diff --git a/drivers/gpu/drm/drm_atomic_helper.c b/drivers/gpu/drm/drm_atomic_helper.c
+index 2dd2cd8..79b5bf8 100644
+--- a/drivers/gpu/drm/drm_atomic_helper.c
++++ b/drivers/gpu/drm/drm_atomic_helper.c
+@@ -1464,8 +1464,8 @@ drm_atomic_helper_wait_for_vblanks(struct drm_device *dev,
+ 					drm_crtc_vblank_count(crtc),
+ 				msecs_to_jiffies(100));
+ 
+-		WARN(!ret, "[CRTC:%d:%s] vblank wait timed out\n",
+-		     crtc->base.id, crtc->name);
++//		WARN(!ret, "[CRTC:%d:%s] vblank wait timed out\n",
++//		     crtc->base.id, crtc->name);
+ 
+ 		drm_crtc_vblank_put(crtc);
+ 	}
+diff --git a/drivers/gpu/drm/drm_vblank.c b/drivers/gpu/drm/drm_vblank.c
+index fd1fbc7..6cb701e 100644
+--- a/drivers/gpu/drm/drm_vblank.c
++++ b/drivers/gpu/drm/drm_vblank.c
+@@ -418,8 +418,8 @@ void drm_vblank_cleanup(struct drm_device *dev)
+ 	for (pipe = 0; pipe < dev->num_crtcs; pipe++) {
+ 		struct drm_vblank_crtc *vblank = &dev->vblank[pipe];
+ 
+-		WARN_ON(READ_ONCE(vblank->enabled) &&
+-			drm_core_check_feature(dev, DRIVER_MODESET));
++		READ_ONCE(vblank->enabled);
++		drm_core_check_feature(dev, DRIVER_MODESET);
+ 
+ 		del_timer_sync(&vblank->disable_timer);
+ 	}
