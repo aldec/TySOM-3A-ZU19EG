@@ -1,0 +1,14 @@
+uenvcmd=run aldec_sdboot
+
+kernel_image=Image
+devicetree_image=devicetree.dtb
+ramdisk_image=uramdisk.image.gz
+mmc=mmc 1:1
+
+# uramdisk filesystem
+bootargs=console=ttyPS0,115200 rw earlycon clk_ignore_unused earlyprintk uio_pdrv_genirq.of_id=xlnx,generic-uio cma=1024M cpuidle.off=1 root=/dev/ram0
+aldec_sdboot=echo Copying Linux from SD to RAM... && fatload ${mmc} 0x2A00000 ${kernel_image} && fatload ${mmc} 0x2000000 ${devicetree_image} && fatload ${mmc} 0x6000000 ${ramdisk_image} && booti 0x2A00000 0x6000000 0x2000000
+
+# ext4 filesystem
+#bootargs=console=ttyPS0,115200 rw earlycon clk_ignore_unused earlyprintk uio_pdrv_genirq.of_id=xlnx,generic-uio cma=1024M cpuidle.off=1 root=/dev/mmcblk1p2 rootfstype=ext4
+#aldec_sdboot=echo Copying Linux from SD to RAM... && fatload ${mmc} 0x2A00000 ${kernel_image} && fatload ${mmc} 0x2000000 ${devicetree_image} && booti 0x2A00000 - 0x2000000
