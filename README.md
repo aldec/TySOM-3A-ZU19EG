@@ -22,7 +22,7 @@ git clone <path>
    - [Vivado - board definition files](#tysom_board_def_files)
    - [PetaLinux - BSP](#tysom_petalinux_bsp)
    - [Supported OSes](#tysom_supported_os)
-     - [Ubuntu-Linaro](#ubuntu_linaro_os)
+     - [Ubuntu](#ubuntu_linaro_os)
      - [Debian-Linaro](#debian_linaro_os)
      - [Yocto Project](#yocto_project_os)
      - [Petalinux tools](#petalinux_os)
