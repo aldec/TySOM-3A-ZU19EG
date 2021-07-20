@@ -1,10 +1,9 @@
 # Table of Content
 1. [TySOM](#tysom_main)
    - [Vivado - board definition files](#tysom_board_def_files)
+   - [Vivado - supported versions](#vivado_supported_versions)
 
-<a name="tysom_main"/>
-
-# TySOM
+# TySOM <a name="tysom_main"/>
 
 TySOM is a family of development boards for embedded applications that features Xilinx® Zynq™ all programmable module combining FPGA with ARM® Cortex processor. Plethora of included peripherals makes these boards useful in various embedded applications like Automotive, IoT, Industrial automation or embedded HPC.
 
@@ -30,9 +29,7 @@ Daughter Cards provided by Aldec:
 -	[FMC-QSFP](https://www.aldec.com/en/products/emulation/daughter_cards/fmc_daughter/fmc_qsfp)
 -	[FMC-INDUSTRY](https://www.aldec.com/en/products/emulation/daughter_cards/fmc_daughter/fmc_industry)
 
-<a name="tysom_sdx_platforms"/>
-
-## Vivado - board definition files
+## Vivado - board definition files <a name="tysom_board_def_files"/>
 
 Vivado board definition files contain configuration of Processing System and interfaces available on the board to simplify using the Aldec TySOM board in Xilinx Vivado tool.
 
@@ -56,3 +53,10 @@ The board definition files contain also FMC cards definitions:
 -	[FMC-NET](https://www.aldec.com/en/products/emulation/daughter_cards/fmc_daughter/fmc_net)
 -	[FMC-INDUSTRY](https://www.aldec.com/en/products/emulation/daughter_cards/fmc_daughter/fmc_industry)
 -	[FMC-QSFP](https://www.aldec.com/en/products/emulation/daughter_cards/fmc_daughter/fmc_qsfp)
+
+## Vivado - supported versions <a name="vivado_supported_versions"/>
+
+The Vivado board files for TySOM-3-ZU7EV board are provided for the following Vivado versions:
+- 2018.3
+- 2019.1
+- 2020.2
