@@ -1,0 +1,9 @@
+/* linux */
+the_ROM_image:
+{
+  [bootloader, destination_cpu = a53-0]<TySOM_3A_ZU19EG_FMC1_ADAS/boot/fsbl.elf>
+  [destination_device = pl]<bitstream>
+  [pmufw_image]<TySOM_3A_ZU19EG_FMC1_ADAS/boot/pmufw.elf>
+  [destination_cpu = a53-0, exception_level = el-3]<TySOM_3A_ZU19EG_FMC1_ADAS/boot/bl31.elf>
+  [destination_cpu = a53-0, exception_level = el-2]<TySOM_3A_ZU19EG_FMC1_ADAS/boot/u-boot.elf>
+}
