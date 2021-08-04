@@ -1,4 +1,4 @@
-# Build root filesystem and Linux kernel with using Petalinux 2021.1 for [TySOM-3-ZU7EV](https://www.aldec.com/en/products/emulation/tysom_boards/zynq_ultrascale_mpsoc_boards/tysom_3) board
+# Build root filesystem and Linux kernel with using Petalinux 2021.1 for [TySOM-3A-ZU19EG](https://www.aldec.com/en/products/emulation/tysom_boards/zynq_ultrascale_mpsoc/tysom_3a_zu19eg) board
 
 ## Table of Content
 - [Provided files](#provided_files)
@@ -14,7 +14,7 @@
 ## Requirements <a name="requirements"/>
 
 Hardware: 
-- TySOM-3-ZU7EV
+- TySOM-3A-ZU19EG
 
 Software:
 - Petalinux 2021.1
@@ -31,13 +31,13 @@ source <petalinux_installation_path>/petalinux-2021.1/settings.sh
 2. Create a project with using the BSP.
 
 ```
-petalinux-create -t project -s <path>/TySOM-3-ZU7EV.bsp
+petalinux-create -t project -s <path>/TySOM-3A-ZU19EG.bsp
 ```
 
 3. Go to the project directory
 
 ```
-cd ./TySOM-3-ZU7EV
+cd ./TySOM-3A-ZU19EG
 ```
 
 4. If any changes in the Linux kernel configuration are required then run the command:
