@@ -55,7 +55,7 @@ Temperature Sensor |
 SYSMON |
 Curent monitor |
 
-[Link to the TySOM board page](https://www.aldec.com/en/products/emulation/tysom_boards/zynq_ultrascale_mpsoc_boards/tysom_3a)
+[Link to the TySOM board page](https://www.aldec.com/en/products/emulation/tysom_boards/zynq_ultrascale_mpsoc/tysom_3a_zu19eg)
 
 <a name="tysom_3a_zu19eg_fmc1_adas"/>
 

@@ -1,4 +1,4 @@
-# Petalinux 2020.2 for [TySOM-3A-ZU19EG](https://www.aldec.com/en/products/emulation/tysom_boards/zynq_ultrascale_mpsoc_boards/tysom_3a) board
+# Petalinux 2020.2 for [TySOM-3A-ZU19EG](https://www.aldec.com/en/products/emulation/tysom_boards/zynq_ultrascale_mpsoc/tysom_3a_zu19eg) board
 
 ## Table of Content
 - [Provided files](#provided_files)
