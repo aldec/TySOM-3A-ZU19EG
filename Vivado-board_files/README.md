@@ -59,4 +59,4 @@ The board definition files contain also FMC cards definitions:
 The Vivado board files for TySOM-3-ZU7EV board are provided for the following Vivado versions:
 - 2018.3
 - 2019.1
-- 2020.2
+- 2020.2 (works with 2021.1 version as well)
