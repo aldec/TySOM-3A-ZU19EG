@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?> 
-<board schema_version="2.0" vendor="aldec.com" name="TySOM_3A_ZU19EG" display_name="TySOM-3A-ZU19EG" url="https://www.aldec.com/en/products/emulation/tysom_boards/zynq_ultrascale_mpsoc_boards/tysom_3a" preset_file="preset.xml">
+<board schema_version="2.0" vendor="aldec.com" name="TySOM_3A_ZU19EG" display_name="TySOM-3A-ZU19EG" url="https://www.aldec.com/en/products/emulation/tysom_boards/zynq_ultrascale_mpsoc/tysom_3a_zu19eg" preset_file="preset.xml">
 	<images>
 		<image name="tysom_3a.jpg" display_name="TySOM-3A-ZU19EG BOARD" sub_type="board">
 			<description>TySOM-3A-ZU19EG Board File Image</description>
@@ -22,7 +22,7 @@
 	<jumpers></jumpers>
 	
 	<components> 	
-		<component name="part0" display_name="Zynq UltraScale+ TySOM-3A-ZU19EG Development Platform" type="fpga" part_name="xczu19eg-ffvb1517-2-i" pin_map_file="part0_pins.xml" vendor="aldec" spec_url="https://www.aldec.com/en/products/emulation/tysom_boards/zynq_ultrascale_mpsoc_boards/tysom_3a">
+		<component name="part0" display_name="Zynq UltraScale+ TySOM-3A-ZU19EG Development Platform" type="fpga" part_name="xczu19eg-ffvb1517-2-i" pin_map_file="part0_pins.xml" vendor="aldec" spec_url="https://www.aldec.com/en/products/emulation/tysom_boards/zynq_ultrascale_mpsoc/tysom_3a_zu19eg">
 			<description>FPGA part on the board</description>
 			<interfaces>
 				<interface mode="master" name="ps8_fixedio" type="xilinx.com:zynq_ultra_ps_e:fixedio_rtl:1.0" of_component="ps8_fixedio" preset_proc="zynq_ultra_ps_e_preset"> 
