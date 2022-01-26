@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sdx:platform sdx:vendor="xilinx.com"
+              sdx:library="sdx"
+              sdx:name="TySOM_3A_ZU19EG_FMC1_ADAS"
+              sdx:version="1.0"
+              sdx:schemaVersion="1.0"
+              xmlns:sdx="http://www.xilinx.com/sdx">
+    <sdx:description>
+A platform targeting the TySOM-3A-ZU19EG evaluation board, which includes 8GB of DDR4 for Processing System, HDMI output with support for FMC-ADAS daughter board.
+More information at https://www.aldec.com/en/products/emulation/tysom_boards/zynq_ultrascale_mpsoc/tysom_3a_zu19eg and https://www.aldec.com/en/products/emulation/daughter_cards/fmc_daughter/fmc_adas--fmc-adas
+    </sdx:description>
+    <sdx:systemConfigurations sdx:defaultConfiguration="TySOM_3A_ZU19EG_FMC1_ADAS">
+        <sdx:configuration sdx:name="TySOM_3A_ZU19EG_FMC1_ADAS"
+                           sdx:displayName="TySOM_3A_ZU19EG_FMC1_ADAS"
+                           sdx:defaultProcessorGroup="xrt"
+                           sdx:runtimes="ocl">
+            <sdx:description>TySOM_3A_ZU19EG_FMC1_ADAS</sdx:description>
+            <sdx:bootImages sdx:default="standard">
+                <sdx:image sdx:name="standard"
+                            sdx:bif="TySOM_3A_ZU19EG_FMC1_ADAS/boot/linux.bif"
+                            sdx:imageData="TySOM_3A_ZU19EG_FMC1_ADAS/xrt/image"
+                            sdx:bootmode="sd"
+                            sdx:mountPath="/mnt"
+                            sdx:readme="TySOM_3A_ZU19EG_FMC1_ADAS/boot/generic.readme"
+                            sdx:qemuArguments="TySOM_3A_ZU19EG_FMC1_ADAS/qemu/pmu_args.txt:TySOM_3A_ZU19EG_FMC1_ADAS/qemu/qemu_args.txt"
+                            />
+                <sdx:image sdx:name="xrt"
+                            sdx:bif="TySOM_3A_ZU19EG_FMC1_ADAS/boot/linux.bif"
+                            sdx:imageData="TySOM_3A_ZU19EG_FMC1_ADAS/xrt/image"
+                            sdx:mountPath="/mnt"
+                            sdx:readme="TySOM_3A_ZU19EG_FMC1_ADAS/boot/generic.readme"
+                            sdx:qemuArguments="TySOM_3A_ZU19EG_FMC1_ADAS/xrt/qemu/pmu_args.txt:TySOM_3A_ZU19EG_FMC1_ADAS/xrt/qemu/qemu_args.txt"
+                            />
+            </sdx:bootImages>
+            <sdx:processorGroup sdx:name="xrt"
+                                sdx:displayName="xrt"
+                                sdx:cpuType="cortex-a53">
+                <sdx:os sdx:name="linux"
+                        sdx:displayName="linux"
+                />
+            </sdx:processorGroup>
+        </sdx:configuration>
+    </sdx:systemConfigurations>
+</sdx:platform>

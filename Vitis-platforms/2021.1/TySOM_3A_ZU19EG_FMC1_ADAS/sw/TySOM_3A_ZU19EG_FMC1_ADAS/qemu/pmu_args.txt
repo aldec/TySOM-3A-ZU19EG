@@ -1,0 +1,10 @@
+-M
+microblaze-fdt
+-device
+loader,file=<TySOM_3A_ZU19EG_FMC1_ADAS/qemu/pmufw.elf>
+-machine-path
+.
+-display
+none
+#-hw-dtb
+#<zynqmp-qemu-arm.dtb>

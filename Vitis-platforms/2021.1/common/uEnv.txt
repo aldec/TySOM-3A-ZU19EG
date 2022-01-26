@@ -1,0 +1,5 @@
+# uramdisk filesystem
+bootargs=console=ttyPS0,115200 rw earlycon clk_ignore_unused earlyprintk uio_pdrv_genirq.of_id=xlnx,generic-uio cma=1024M cpuidle.off=1 root=/dev/ram0
+
+# ext4 filesystem
+#bootargs=console=ttyPS0,115200 rw earlycon clk_ignore_unused earlyprintk uio_pdrv_genirq.of_id=xlnx,generic-uio cma=1024M cpuidle.off=1 root=/dev/mmcblk1p2

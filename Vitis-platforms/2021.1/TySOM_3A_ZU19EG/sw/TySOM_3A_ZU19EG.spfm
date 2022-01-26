@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sdx:platform sdx:vendor="xilinx.com"
+              sdx:library="sdx"
+              sdx:name="TySOM_3A_ZU19EG"
+              sdx:version="1.0"
+              sdx:schemaVersion="1.0"
+              xmlns:sdx="http://www.xilinx.com/sdx">
+    <sdx:description>
+A platform targeting the TySOM-3A-ZU19EG evaluation board, which includes 8GB of DDR4 for Processing System, HDMI output and HDMI input interfaces.
+More information at https://www.aldec.com/en/products/emulation/tysom_boards/zynq_ultrascale_mpsoc/tysom_3a_zu19eg
+    </sdx:description>
+    <sdx:systemConfigurations sdx:defaultConfiguration="TySOM_3A_ZU19EG">
+        <sdx:configuration sdx:name="TySOM_3A_ZU19EG"
+                           sdx:displayName="TySOM_3A_ZU19EG"
+                           sdx:defaultProcessorGroup="xrt"
+                           sdx:runtimes="ocl">
+            <sdx:description>TySOM_3A_ZU19EG</sdx:description>
+            <sdx:bootImages sdx:default="standard">
+                <sdx:image sdx:name="standard"
+                            sdx:bif="TySOM_3A_ZU19EG/boot/linux.bif"
+                            sdx:imageData="TySOM_3A_ZU19EG/xrt/image"
+                            sdx:bootmode="sd"
+                            sdx:mountPath="/mnt"
+                            sdx:readme="TySOM_3A_ZU19EG/boot/generic.readme"
+                            sdx:qemuArguments="TySOM_3A_ZU19EG/qemu/pmu_args.txt:TySOM_3A_ZU19EG/qemu/qemu_args.txt"
+                            />
+                <sdx:image sdx:name="xrt"
+                            sdx:bif="TySOM_3A_ZU19EG/boot/linux.bif"
+                            sdx:imageData="TySOM_3A_ZU19EG/xrt/image"
+                            sdx:mountPath="/mnt"
+                            sdx:readme="TySOM_3A_ZU19EG/boot/generic.readme"
+                            sdx:qemuArguments="TySOM_3A_ZU19EG/xrt/qemu/pmu_args.txt:TySOM_3A_ZU19EG/xrt/qemu/qemu_args.txt"
+                            />
+            </sdx:bootImages>
+            <sdx:processorGroup sdx:name="xrt"
+                                sdx:displayName="xrt"
+                                sdx:cpuType="cortex-a53">
+                <sdx:os sdx:name="linux"
+                        sdx:displayName="linux"
+                />
+            </sdx:processorGroup>
+        </sdx:configuration>
+    </sdx:systemConfigurations>
+</sdx:platform>
