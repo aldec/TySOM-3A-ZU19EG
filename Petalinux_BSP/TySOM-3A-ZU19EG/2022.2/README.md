@@ -11,7 +11,7 @@
 	- [Notes](#test_petalinux_notes)
 
 ## Provided files <a name="provided_files"/>
-
+- TySOM-3A-ZU19EG.bsp
 ## Requirements <a name="requirements"/>
 
 Hardware: 
