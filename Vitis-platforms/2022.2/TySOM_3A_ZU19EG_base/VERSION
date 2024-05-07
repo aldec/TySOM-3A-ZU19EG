@@ -1,0 +1,5 @@
+board    : TySOM-3A-ZU19EG
+vendor   : Aldec, Inc.
+platform : TySOM_3A_ZU19EG_base
+version  : 2022.2
+revision : 258febc6e7c282c154964d5bd2ba6e9d43b9047b
