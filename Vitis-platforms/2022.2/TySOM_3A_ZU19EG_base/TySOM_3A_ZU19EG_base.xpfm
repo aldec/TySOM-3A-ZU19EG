@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sdx:platform sdx:vendor="xilinx.com"
+              sdx:library="sdx"
+              sdx:name="TySOM_3A_ZU19EG_base"
+              sdx:version="1.0"
+              xmlns:sdx="http://www.xilinx.com/sdx">
+    <sdx:description>
+A basic static platform targeting the TySOM-3A-ZU19EG evaluation board, which includes 8GB DDR4, GEM, USB, SDIO interface and UART of the Processing System. It reserves most of the PL resources for user to add acceleration kernels
+    </sdx:description>
+    <sdx:hardwarePlatforms>
+        <sdx:hardwarePlatform sdx:path="hw" sdx:name="hw.xsa"/>
+        <sdx:hwEmuPlatform sdx:path="hw_emu" sdx:name="hw_emu.xsa"/>
+    </sdx:hardwarePlatforms>
+    <sdx:softwarePlatforms>
+        <sdx:softwarePlatform sdx:path="sw" sdx:name="TySOM_3A_ZU19EG_base.spfm"/>
+    </sdx:softwarePlatforms>
+</sdx:platform>
+
